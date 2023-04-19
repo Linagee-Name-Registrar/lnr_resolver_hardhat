@@ -1,0 +1,29 @@
+Note: tests fail on commented out revert test -> not sure why, tx is reverted but still throws error, 
+      have tried with and without reason
+
+  LNR_RESOLVER_V3
+    Deployment   
+(node:15848) ExperimentalWarning: stream/web is an experimental feature. This feature could change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+0x21915b79E1d334499272521a3508061354D13FF0
+0x5564886ca2C518d1964E5FCea4f423b41Db9F561 0x5564886ca2C518d1964E5FCea4f423b41Db9F561
+      ✔ Should return lnrAddress if deployed and upgraded (4066ms)
+      Setting to existing name owned by mason
+        ✔ Should return the current primary() (60ms)
+        ✔ Should return the current controller() (57ms)
+        ✔ Should return the current resolveAddress() (53ms)
+        ✔ Should return the current resolve() (55ms)
+        ✔ Should set and return the set text records (651ms)
+        ✔ Should unset the text record and return nothing (373ms)
+      Setting to a new name: 12mason12
+        ✔ Should unset and set primary then return the current primary() (499ms)
+        ✔ Should unset the current primary (423ms)
+        ✔ Should return the current controller() (155ms)
+        ✔ Should unset the current controller (287ms)
+        ✔ Should return the current resolveAddress() (307ms)
+        ✔ Should return the current resolve() (276ms)
+        ✔ Should set and return the set text records (810ms)
+        ✔ Should unset the text record and return nothing (540ms)
+
+
+  15 passing (9s)
