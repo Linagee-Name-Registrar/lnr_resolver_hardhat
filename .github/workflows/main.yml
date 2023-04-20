@@ -30,10 +30,13 @@ jobs:
         run: npm install
 
       - name: Start Hardhat node 🚀
-        run: npm run node:start
+        run: npm run node:start &
         env:
           CI: true
           INFURA_API_KEY: ${{ secrets.INFURA_API_KEY }}
+
+      - name: Wait for Hardhat node to be ready 🕐
+        run: sleep 30
 
       - name: Run tests 🧪
         run: npm run test
