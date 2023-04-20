@@ -17,6 +17,8 @@ async function main() {
 
   await lock.deployed();
 
+  console.log('Deploying contract on ' + hre.network.name + ' network...');
+
   console.log(
     `Lock with ${ethers.utils.formatEther(
       lockedAmount
