@@ -1,3 +1,5 @@
+[![Hardhat tests](https://github.com/Linagee-Name-Registrar/lnr_resolver_hardhat/actions/workflows/main.yml/badge.svg)](https://github.com/Linagee-Name-Registrar/lnr_resolver_hardhat/actions/workflows/main.yml)
+
 # Linagee Resolver Hardhat Repo
 
 ### Install dependencies
