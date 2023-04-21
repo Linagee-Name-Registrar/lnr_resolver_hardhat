@@ -532,7 +532,7 @@ const {
         const v3Contract = await v3.deploy();
         await v3Contract.deployed();
     
-        console.log(v3Contract.address)
+        //console.log(v3Contract.address)
     
         //  impersonating multisig account
         await network.provider.request({
@@ -573,7 +573,8 @@ const {
 
         //console.log("first", lnrResolverInstance)
 
-    
+
+
         return({lnrResolverInstance, lnrResolverAddress, lnrOgInstance, signerMason, masonog})
     
     
@@ -583,7 +584,7 @@ const {
         it("Should return lnrAddress if deployed and upgraded", async function () {
           const { lnrResolverInstance, lnrResolverAddress, lnrOgInstance, signerMason, masonog } = await loadFixture(deployAndUpgradeTo);
           const lnraddr = await lnrResolverInstance.lnrAddress()  
-          console.log(lnraddr, lnrOgInstance.address)
+          //console.log(lnraddr, lnrOgInstance.address)
           expect(lnraddr).to.equal(lnrOgInstance.address);
         });
         describe("Setting to existing name owned by mason", function() {
@@ -661,45 +662,43 @@ const {
 
         describe("Setting to a new name: 12mason12", function() {
 
-            // it("should deny setting/unsetting primary - not owned yet", async function () {
+            it("should deny setting/unsetting primary - not owned yet", async function () {
 
-            //     const { lnrResolverInstance, lnrResolverAddress, lnrOgInstance, lnrOgAddress, signerMason, masonog } = await loadFixture(deployAndUpgradeTo);
+                const { lnrResolverInstance, lnrResolverAddress, lnrOgInstance, lnrOgAddress, signerMason, masonog } = await loadFixture(deployAndUpgradeTo);
 
-            //     expect( 
-            //         await lnrResolverInstance.setPrimary("0x31326d61736f6e31320000000000000000000000000000000000000000000000")
-            //         ).to.be.revertedWith("Not yours");
+                
+                await expect( 
+                    lnrResolverInstance.setPrimary(mason12)
+                    ).to.be.revertedWith("Not yours");
 
-            //     expect( 
-            //         await lnrResolverInstance.unsetPrimary()
-            //         ).to.be.revertedWith("Not yours");
 
-            // })
+            })
 
-            // it("should deny setting/unsetting controller - not owned yet", async function () {
+            it("should deny setting/unsetting controller - not owned yet", async function () {
 
-            //     const { lnrResolverInstance, lnrResolverAddress, lnrOgInstance, lnrOgAddress, signerMason, masonog } = await loadFixture(deployAndUpgradeTo);
+                const { lnrResolverInstance, lnrResolverAddress, lnrOgInstance, lnrOgAddress, signerMason, masonog } = await loadFixture(deployAndUpgradeTo);
 
-            //     expect( 
-            //         await lnrResolverInstance.setController("0x31326d61736f6e31320000000000000000000000000000000000000000000000", signerMason.address)
-            //         ).to.be.revertedWith("Not yours");
-            //     expect( 
-            //         await lnrResolverInstance.unsetController("0x31326d61736f6e31320000000000000000000000000000000000000000000000")
-            //         ).to.be.revertedWith("Not yours");
+                await expect( 
+                    lnrResolverInstance.setController(mason12, signerMason.address)
+                    ).to.be.revertedWith("Not yours");
+                await expect( 
+                    lnrResolverInstance.unsetController(mason12)
+                    ).to.be.revertedWith("Not yours");
 
-            // })
+            })
 
-            // it("should deny setting/unsetting textrecord - not owned yet", async function () {
+            it("should deny setting/unsetting textrecord - not owned yet", async function () {
 
-            //     const { lnrResolverInstance, lnrResolverAddress, lnrOgInstance, lnrOgAddress, signerMason, masonog } = await loadFixture(deployAndUpgradeTo);
+                const { lnrResolverInstance, lnrResolverAddress, lnrOgInstance, lnrOgAddress, signerMason, masonog } = await loadFixture(deployAndUpgradeTo);
 
-            //     expect( 
-            //         await lnrResolverInstance.setTextRecord(mason12, "testkey1", "testvalue1")
-            //         ).to.be.revertedWith("Not yours")
-            //     expect( 
-            //         await lnrResolverInstance.unsetTextRecord(mason12, "testkey1")
-            //         ).to.be.revertedWith("Not yours");
+                await expect( 
+                    lnrResolverInstance.setTextRecord(mason12, "testkey1", "testvalue1")
+                    ).to.be.revertedWith("Not yours")
+                await expect( 
+                    lnrResolverInstance.unsetTextRecord(mason12, "testkey1")
+                    ).to.be.revertedWith("Not yours");
 
-            // })
+            })
 
             it("Should unset and set primary then return the current primary()", async function () {
                 const { lnrResolverInstance, lnrResolverAddress, lnrOgInstance, lnrOgAddress, signerMason, masonog } = await loadFixture(deployAndUpgradeTo);
