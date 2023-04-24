@@ -11,11 +11,16 @@ module.exports = {
         url: `https://mainnet.infura.io/v3/${process.env.INFURA_API_KEY}`,
       }
     },
-    // hardhat: {},
+    // hardhat: {
+    //   hardfork: "merge"
+    // },
     mainnet: {
       url: `https://mainnet.infura.io/v3/${process.env.INFURA_API_KEY}`,
       gasPrice: 204369036266, 
       gas: 53064000,
     },
+  },
+  etherscan: {
+    apiKey: process.env.ETHERSCAN_API_KEY
   }
 };
