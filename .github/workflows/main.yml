@@ -40,6 +40,7 @@ jobs:
 #        env:
 #          # Set this in your repo -> Settings -> Secrets -> Actions
 #          INFURA_API_KEY: ${{ secrets.INFURA_API_KEY }}
+#
 
       - name: Wait for Hardhat node to be ready 🕐
         run: sleep 30
