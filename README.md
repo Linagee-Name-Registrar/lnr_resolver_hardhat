@@ -9,6 +9,7 @@ npm install
 
 ### Add your API keys
 - Create a **.env** file in the root folder and add your Alchemy API key (use .env.example as a template)
+- Also add the ETHERSCAN_API_KEY (if you want to verify the contract on Etherscan)
 
 ### Compile the contract
 ```shell
@@ -21,9 +22,15 @@ npx hardhat test
 REPORT_GAS=true npx hardhat test
 ```
 
-### Deploy
-```
+### Deploy the contract
+```shell
 npx hardhat run scripts/deploy.js
+npx hardhat run --network <desired-network> scripts/deploy.js
+```
+
+### Verify the contract on Etherscan
+```shell
+npx hardhat verify --network <desired-network> <address> <constructor argument 1> <constructor argument 2> ...
 ```
 
 ### Other commands
