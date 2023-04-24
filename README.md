@@ -19,6 +19,7 @@ npx hardhat compile
 ### Run tests
 ```shell
 npx hardhat test
+npx hardhat test --network hardhat
 REPORT_GAS=true npx hardhat test
 ```
 
