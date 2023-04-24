@@ -3,11 +3,12 @@ name: Hardhat tests
 on:
   push:
     branches: [master]
-#  pull_request:
-#    branches: [master]
-  # Works with forked repos too - can access the env vars
+
+  # 'pull_request' event can access secrets only for pull req from cloned repositories (and so a pull req from a forked repo will not run the tests)
+  # 'pull_request_target' event can access secrets when doing pull req from a forked repo (and so the tests will run)
   pull_request_target:
     branches: [master]
+
   # Allows to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -37,15 +38,9 @@ jobs:
 
       - name: Start Hardhat node 🚀
         run: npm run node:start &
-#        env:
-#          # Set this in your repo -> Settings -> Secrets -> Actions
-#          INFURA_API_KEY: ${{ secrets.INFURA_API_KEY }}
 
       - name: Wait for Hardhat node to be ready 🕐
         run: sleep 30
 
       - name: Run tests 🧪
         run: npm run test
-#        env:
-#          # Set this in your repo -> Settings -> Secrets -> Actions
-#          INFURA_API_KEY: ${{ secrets.INFURA_API_KEY }}
