@@ -16,4 +16,4 @@ node_modules/
 .env.production.local
 .idea
 
-/scripts/chain.js
+/scripts/chain
