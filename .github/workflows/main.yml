@@ -2,12 +2,12 @@ name: Hardhat tests
 
 on:
   push:
-    branches: [master]
+    branches: [deployed]
 
   # 'pull_request' event can access secrets only for pull req from cloned repositories (and so a pull req from a forked repo will not run the tests)
   # 'pull_request_target' event can access secrets when doing pull req from a forked repo (and so the tests will run)
   pull_request_target:
-    branches: [master]
+    branches: [deployed]
 
   # Allows to run this workflow manually from the Actions tab
   workflow_dispatch:
