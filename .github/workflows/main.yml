@@ -2,9 +2,9 @@ name: Hardhat tests
 
 on:
   push:
-    branches: [master]
+    branches: [deployed]
   pull_request:
-    branches: [master]
+    branches: [deployed]
   # Allows to run this workflow manually from the Actions tab
   workflow_dispatch:
 

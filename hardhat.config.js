@@ -17,5 +17,10 @@ module.exports = {
       gasPrice: 204369036266, 
       gas: 53064000,
     },
+    sepolia: {
+      url: `https://sepolia.infura.io/v3/${process.env.INFURA_API_KEY}`,
+      gasPrice: 204369036266, 
+      gas: 53064000,
+    },
   }
 };
