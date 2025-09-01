@@ -31,3 +31,6 @@ npx hardhat run scripts/deploy.js
 npx hardhat help
 npx hardhat node
 ```
+
+
+<!-- Security scan triggered at 2025-09-02 00:32:02 -->
